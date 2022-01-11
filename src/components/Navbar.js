@@ -8,10 +8,11 @@ function Navbar() {
         <Link to={"/"}>Home</Link>
       </li>
       <li className="nav-links">
-        <Link to="SearchForm">Search</Link>
+        <Link to={"SearchForm"}>Search</Link>
       </li>
+
       <li className="nav-links">
-        <a href="">About</a>
+        <Link to="About">About</Link>
       </li>
     </div>
   );
