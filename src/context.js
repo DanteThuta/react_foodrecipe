@@ -1,3 +1,4 @@
+import axios from "axios";
 import React, { useEffect } from "react";
 import { useState, useContext } from "react";
 
@@ -11,10 +12,11 @@ const AppProvider = ({ children }) => {
   const [loading, setLoading] = useState(true);
   const [recipes, setRecipes] = useState([]);
   const [searchResults, setSearchResults] = useState([]);
+
   const [searchItem, setSearchItem] = useState("");
-  const [temp, setTemp] = useState();
 
   //Home Menu Fetching
+  //Can delete from here
   const fetchRecipes = async () => {
     const response = await fetch(
       `https://api.spoonacular.com/recipes/search?apiKey=${appKey}`
@@ -35,7 +37,7 @@ const AppProvider = ({ children }) => {
           url: sourceUrl,
         };
       });
-      setRecipes(newRecipes);
+      // setRecipes(newRecipes);
     }
 
     // console.log(data);
@@ -44,6 +46,7 @@ const AppProvider = ({ children }) => {
     // });
     // setRecipes(data.results);
   };
+  //can Delete To Here
 
   //Search Function
   const fetchSearchRecipe = async () => {
@@ -55,8 +58,33 @@ const AppProvider = ({ children }) => {
     setSearchResults(data.results);
   };
   useEffect(() => {
-    fetchRecipes();
-    fetchSearchRecipe();
+    // fetchRecipes();
+
+    //testing by Axios
+    axios
+      .get(
+        `https://api.spoonacular.com/recipes/search?apiKey=${appKey}&query=${searchItem}`
+      )
+      .then((res) => {
+        const data = res.data.results;
+        // console.log(data);
+
+        const newRecipes = data.map((item) => {
+          const { id, servings, sourceUrl } = item;
+
+          return {
+            recipeId: id,
+            serveNum: servings,
+            url: sourceUrl,
+          };
+        });
+        setRecipes(newRecipes);
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+
+    // fetchSearchRecipe();
   }, [searchItem]);
   return (
     <AppContext.Provider
@@ -69,7 +97,6 @@ const AppProvider = ({ children }) => {
         searchResults,
         setSearchResults,
         setSearchItem,
-        temp,
       }}
     >
       {children}

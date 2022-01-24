@@ -8,11 +8,12 @@ import {
   Link,
 } from "react-router-dom";
 import SearchForm from "./components/SearchForm";
-import HomeRecipe from "./components/HomeRecipe";
-import RecipeDetail from "./components/RecipeDetail";
+import HomeRecipe from "./components/HomeRecipe/HomeRecipe";
+import RecipeDetail from "./components/RecipeDetail/RecipeDetail";
 import TestFile from "./components/TestFile";
-import Navbar from "./components/Navbar";
-import About from "./components/About";
+import Navbar from "./components/Navbar/Navbar";
+import About from "./components/About/About";
+import Footer from "./components/Footer/Footer";
 import { AppContext, Provider } from "./context";
 
 function App() {
@@ -21,11 +22,16 @@ function App() {
       <Router>
         <Navbar />
         <Routes>
-          <Route exact path="/" element={<HomeRecipe />}></Route>
+          <Route
+            exact
+            path="/"
+            element={<HomeRecipe header="Welcome to Recipes Center " />}
+          ></Route>
           <Route path="SearchForm" element={<SearchForm />}></Route>
           <Route path="/about" element={<About />}></Route>
           <Route path="/recipe/:id" element={<RecipeDetail />}></Route>
         </Routes>
+        <Footer />
       </Router>
     </div>
   );
