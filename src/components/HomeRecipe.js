@@ -1,17 +1,19 @@
-import React from 'react'
+import React from "react";
+import { useGlobalContext } from "../context";
 
 function HomeRecipe() {
-    return (
-        <div>
-            <h2>Welcome from Recipes</h2>
+  const { setRecipes } = useGlobalContext();
+  return (
+    <div>
+      <h2>Welcome from Recipes</h2>
 
-            <section className='recipegrid'>
-                <img></img>
-                <h2>tete</h2>
-                <p>dsfdf</p>
-            </section>
-        </div>
-    )
+      <section className="recipegrid">
+        <img></img>
+        <h2>tete</h2>
+        <p>dsfdf</p>
+      </section>
+    </div>
+  );
 }
 
-export default HomeRecipe
+export default HomeRecipe;

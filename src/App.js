@@ -9,8 +9,9 @@ import {
 } from "react-router-dom";
 import SearchForm from "./components/SearchForm";
 import HomeRecipe from "./components/HomeRecipe";
+import ReactTest from "./components/ReactTest";
 import Navbar from "./components/Navbar";
-import { AppContext, Provider } from "./context";
+import { AppContext, AppProvider } from "./context";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Routes>
           <Route exact path="/" element={<HomeRecipe />}></Route>
           <Route path="SearchForm" element={<SearchForm />}></Route>
+          <Route path="ReactTest" element={<ReactTest />}></Route>
         </Routes>
       </Router>
     </div>

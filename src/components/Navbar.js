@@ -11,6 +11,9 @@ function Navbar() {
         <Link to="SearchForm">Search</Link>
       </li>
       <li className="nav-links">
+        <Link to="ReactTest">RTest</Link>
+      </li>
+      <li className="nav-links">
         <a href="">About</a>
       </li>
     </div>
