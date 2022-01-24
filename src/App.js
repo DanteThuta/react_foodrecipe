@@ -25,7 +25,9 @@ function App() {
           <Route
             exact
             path="/"
-            element={<HomeRecipe header="Welcome to Recipes Center " />}
+            element={
+              <HomeRecipe header="Welcome to Recipes Center by DESKTOP " />
+            }
           ></Route>
           <Route path="SearchForm" element={<SearchForm />}></Route>
           <Route path="/about" element={<About />}></Route>
