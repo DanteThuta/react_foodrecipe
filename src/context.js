@@ -37,7 +37,7 @@ const AppProvider = ({ children }) => {
           url: sourceUrl,
         };
       });
-      // setRecipes(newRecipes);
+      setRecipes(newRecipes);
     }
 
     // console.log(data);
@@ -67,15 +67,17 @@ const AppProvider = ({ children }) => {
       )
       .then((res) => {
         const data = res.data.results;
-        // console.log(data);
+        console.log(data);
 
         const newRecipes = data.map((item) => {
-          const { id, servings, sourceUrl } = item;
+          const { id, title, servings, sourceUrl, readyInMinutes } = item;
 
           return {
             recipeId: id,
             serveNum: servings,
             url: sourceUrl,
+            readyTime: readyInMinutes,
+            title,
           };
         });
         setRecipes(newRecipes);
@@ -84,7 +86,7 @@ const AppProvider = ({ children }) => {
         console.log(error);
       });
 
-    // fetchSearchRecipe();
+    fetchSearchRecipe();
   }, [searchItem]);
   return (
     <AppContext.Provider

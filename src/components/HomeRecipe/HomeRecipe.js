@@ -15,23 +15,21 @@ function HomeRecipe({ header }) {
             <h2>{header}</h2>
           </div>
           <div className="recipe-container">
-            <section className="recipegrid">
-              <div className="image-section">
-                <img src={image} alt="No Image" className="recipe-image" />
-              </div>
-              <div className="recipe-infos">
-                {/* <img src="" alt="image not show" /> */}
-                <h3>Lorem, ipsum dolor.</h3>
+            {recipes.map((recipe) => (
+              <section key={recipe.recipeId} className="recipegrid">
+                <img
+                  src={`https://spoonacular.com/recipeImages/${recipe.id}-312x150`}
+                  alt="Loading... "
+                />
+                <h2>{recipe.title}</h2>
+                <li>Cooking Time: {recipe.readyTime} Minutes</li>
+                <p>{recipe.serveNum}</p>
 
-                <h4>Persever</h4>
-                <li>Lorem, ipsum dolor.</li>
-
-                <h4>Instructions</h4>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
-
-                <button className="detail-btn">Details</button>
-              </div>
-            </section>
+                <button className="detail-btn">
+                  <Link to={`recipe/${recipes.recipeId}`}>Detail</Link>
+                </button>
+              </section>
+            ))}
           </div>
         </Content>
       </Wrapper>

@@ -44,6 +44,9 @@ function RecipeDetail() {
     <>
       <Wrapper>
         <Content>
+          <div className="heading">
+            <h2>Toping Heading</h2>
+          </div>
           <div className="recipe-detail">
             <div className="img-section">
               <img src={image} className="image" alt="no image" />

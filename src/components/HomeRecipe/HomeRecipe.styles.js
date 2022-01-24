@@ -28,7 +28,7 @@ export const Content = styled.div`
     min-height: auto;
 
     /* padding: 30px 0; */
-    margin: 10px auto;
+    margin: 40px auto;
 
     border-bottom: 1px solid #888;
     border-radius: 10px;
@@ -60,5 +60,6 @@ export const Content = styled.div`
     border: 0;
     font-size: 1em;
     border-radius: 10px;
+    text-decoration: none;
   }
 `;

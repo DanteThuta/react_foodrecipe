@@ -8,7 +8,7 @@ export const Wrapper = styled.div`
 export const Content = styled.div`
   width: 80%;
 
-  border: 1px solid black;
+  // border: 1px solid black;
   margin: 2em auto;
   padding: 2em 0.5em;
 
@@ -35,5 +35,15 @@ export const Content = styled.div`
     width: 300px;
     height: 200px;
     border-radius: 10px;
+  }
+
+  @media screen and (max-width: 768px) {
+    .recipe-detail {
+      flex-direction: column;
+    }
+
+    .recipe-details {
+      margin: 10px auto;
+    }
   }
 `;
