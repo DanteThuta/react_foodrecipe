@@ -67,7 +67,7 @@ const AppProvider = ({ children }) => {
       )
       .then((res) => {
         const data = res.data.results;
-        console.log(data);
+        // console.log(data);
 
         const newRecipes = data.map((item) => {
           const { id, title, servings, sourceUrl, readyInMinutes } = item;

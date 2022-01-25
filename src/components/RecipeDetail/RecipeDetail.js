@@ -13,28 +13,26 @@ function RecipeDetail() {
   const [error, setError] = useState("");
   const appKey = "73b423238828427f8020a4b6d4fa9900";
 
-  const url = `https://api.spoonacular.com/recipeso/${id}/information?includeNutrition=true&apiKey=${appKey}`;
+  const url = `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=true&apiKey=${appKey}`;
   // console.log(url);
 
-  // useEffect(() => {
-  //   axios
-  //     .get(`${url}`)
-  //     .then((res) => {
-  //       const data = res.data;
-  //       console.log(data);
-  //       console.log(data.vegetarian);
+  useEffect(() => {
+    axios
+      .get(`${url}`)
+      .then((res) => {
+        const data = res.data;
 
-  //       setrecipeById(data);
-  //     })
-  //     .catch((error) => {
-  //       // throw new Error("Cannot Perform");
-  //       console.log(error.message);
-  //       const errorMsg = error.message;
-  //       setError(errorMsg);
+        setrecipeById(data);
+      })
+      .catch((error) => {
+        // throw new Error("Cannot Perform");
+        console.log(error.message);
+        const errorMsg = error.message;
+        setError(errorMsg);
 
-  //       // setError(error);
-  //     });
-  // }, [id]);
+        // setError(error);
+      });
+  }, [id]);
 
   if (error) {
     return <p> {error}</p>;
@@ -45,24 +43,24 @@ function RecipeDetail() {
       <Wrapper>
         <Content>
           <div className="heading">
-            <h2>Toping Heading</h2>
+            <h2>{recipeById.title}</h2>
           </div>
           <div className="recipe-detail">
             <div className="img-section">
               <img src={image} className="image" alt="no image" />
             </div>
             <div className="recipe-details">
-              <div className="recipe-single">
-                <h3>heading:</h3>
-                <p>test</p>
+              <div className="recipe-single"`>
+                <h3>Calorie Per Dish:</h3>
+                <p>{recipeById.caloricBreakdown.percentFat}</p>
               </div>
               <div className="recipe-single">
-                <h3>heading:</h3>
-                <p>test</p>
+                <h3>Dish Types:</h3>
+                <li> {recipeById.dishTypes}</li>
               </div>
               <div className="recipe-single">
-                <h3>heading:</h3>
-                <p>test</p>
+                <h3>Instructions:</h3>
+                <p>{recipeById.instructions}</p>
               </div>
             </div>
           </div>

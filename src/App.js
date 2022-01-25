@@ -10,7 +10,7 @@ import {
 import SearchForm from "./components/SearchForm";
 import HomeRecipe from "./components/HomeRecipe/HomeRecipe";
 import RecipeDetail from "./components/RecipeDetail/RecipeDetail";
-import TestFile from "./components/TestFile";
+
 import Navbar from "./components/Navbar/Navbar";
 import About from "./components/About/About";
 import Footer from "./components/Footer/Footer";

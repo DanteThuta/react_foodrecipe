@@ -26,7 +26,7 @@ function HomeRecipe({ header }) {
                 <p>{recipe.serveNum}</p>
 
                 <button className="detail-btn">
-                  <Link to={`recipe/${recipes.recipeId}`}>Detail</Link>
+                  <Link to={`recipe/${recipe.recipeId}`}>Detail</Link>
                 </button>
               </section>
             ))}
