@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useEffect } from "react";
 import { useState, useContext } from "react";
+import { isPersistedState } from "./components/helpers";
 
 // const appID = "6b6789ca";
 const appKey = "73b423238828427f8020a4b6d4fa9900";
@@ -16,49 +17,17 @@ const AppProvider = ({ children }) => {
   const [searchItem, setSearchItem] = useState("");
 
   //Home Menu Fetching
-  //Can delete from here
-  const fetchRecipes = async () => {
-    const response = await fetch(
-      `https://api.spoonacular.com/recipes/search?apiKey=${appKey}`
-    );
-    const data = await response.json();
 
-    const { results } = data;
-
-    // console.log(typeof results);
-
-    if (results) {
-      const newRecipes = results.map((item) => {
-        const { id, servings, sourceUrl } = item;
-
-        return {
-          recipeId: id,
-          serveNum: servings,
-          url: sourceUrl,
-        };
-      });
-      setRecipes(newRecipes);
-    }
-
-    // console.log(data);
-    // data.results.forEach((name) => {
-    //   console.log(name.title);
-    // });
-    // setRecipes(data.results);
-  };
-  //can Delete To Here
-
-  //Search Function
-  const fetchSearchRecipe = async () => {
-    const response = await fetch(
-      `https://api.spoonacular.com/recipes/search?apiKey=${appKey}&query=${searchItem}`
-    );
-    const data = await response.json();
-
-    setSearchResults(data.results);
-  };
   useEffect(() => {
-    // fetchRecipes();
+    // testing for Session
+    //to retrive Data from Session (Not from API)
+    const sessionState = isPersistedState("homeState");
+
+    // if (sessionState) {
+    //   console.log("Fetched from Session");
+    //   setRecipes(sessionState);
+    //   return;
+    // }
 
     //testing by Axios
     axios
@@ -67,7 +36,6 @@ const AppProvider = ({ children }) => {
       )
       .then((res) => {
         const data = res.data.results;
-        console.log(data);
 
         const newRecipes = data.map((item) => {
           const { id, title, servings, sourceUrl, readyInMinutes } = item;
@@ -81,13 +49,22 @@ const AppProvider = ({ children }) => {
           };
         });
         setRecipes(newRecipes);
+
+        //for Search Results
+        setSearchResults(data);
       })
       .catch((error) => {
         console.log(error);
       });
-
-    fetchSearchRecipe();
   }, [searchItem]);
+
+  // for SessionStorage
+  useEffect(() => {
+    sessionStorage.setItem("homeState", JSON.stringify(recipes));
+  }, [recipes]);
+
+  //for Single Recipe
+
   return (
     <AppContext.Provider
       value={{

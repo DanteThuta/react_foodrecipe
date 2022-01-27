@@ -18,15 +18,26 @@ function HomeRecipe({ header }) {
             {recipes.map((recipe) => (
               <section key={recipe.recipeId} className="recipegrid">
                 <img
-                  src={`https://spoonacular.com/recipeImages/${recipe.id}-312x150`}
+                  src={`https://spoonacular.com/recipeImages/${recipe.recipeId}-312x150`}
                   alt="Loading... "
+                  className="recipe-image"
                 />
-                <h2>{recipe.title}</h2>
+
+                <h3>{recipe.title}</h3>
                 <li>Cooking Time: {recipe.readyTime} Minutes</li>
-                <p>{recipe.serveNum}</p>
+                <p> Person Amount for Food: {recipe.serveNum}</p>
 
                 <button className="detail-btn">
-                  <Link to={`recipe/${recipes.recipeId}`}>Detail</Link>
+                  <Link
+                    to={`recipe/${recipe.recipeId}`}
+                    style={{
+                      textDecoration: "none",
+                      color: "white",
+                      fontWeight: "bold",
+                    }}
+                  >
+                    Detail
+                  </Link>
                 </button>
               </section>
             ))}

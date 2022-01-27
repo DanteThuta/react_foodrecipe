@@ -1,31 +1,30 @@
 import styled from "styled-components";
 
 export const Wrapper = styled.div`
-  /* For HomeRecipe Component */
-  .recipe-container {
-    display: flex;
-    flex-wrap: wrap;
-  }
+  width: 100%;
 `;
 
 export const Content = styled.div`
+  /* For SearchForm Component */
+  .searchForm {
+    /* background-color: linen; */
+
+    padding: 25px 10px;
+  }
+
+  .searchInput {
+    padding: 10px 15px;
+    border: 0;
+    border-radius: 15px;
+  }
+
+  //For Item Displayed Component (Copy from HomeRecipe)
   h2 {
     display: inline-block;
     font-size: 2em;
     padding: 10px 25px;
     background: transparent;
     background-color: grey;
-    border: 1px solid white;
-    border-radius: 10px;
-  }
-
-  h3 {
-    display: inline-block;
-    font-size: 2em;
-    padding: 10px 25px;
-    background: transparent;
-    background-color: tomato;
-    color: white;
     border: 1px solid white;
     border-radius: 10px;
   }
@@ -60,12 +59,12 @@ export const Content = styled.div`
     width: 100%;
     height: 300px;
 
-    border-radius: 10px 10px 0 0;
+    border-radius: 5px 5px 0 0;
   }
 
   .detail-btn {
     background-color: #0da6ff;
-    color: white;
+    color: black;
 
     padding: 1em 1.2em;
     border: 0;

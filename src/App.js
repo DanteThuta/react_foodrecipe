@@ -7,7 +7,7 @@ import {
   Switch,
   Link,
 } from "react-router-dom";
-import SearchForm from "./components/SearchForm";
+import SearchForm from "./components/SearchForm/SearchForm";
 import HomeRecipe from "./components/HomeRecipe/HomeRecipe";
 import RecipeDetail from "./components/RecipeDetail/RecipeDetail";
 import TestFile from "./components/TestFile";
@@ -27,9 +27,13 @@ function App() {
             path="/"
             element={<HomeRecipe header="Welcome to Recipes Center by Mac " />}
           ></Route>
-          <Route path="SearchForm" element={<SearchForm />}></Route>
+          <Route path="/SearchForm" element={<SearchForm />}></Route>
           <Route path="/about" element={<About />}></Route>
           <Route path="/recipe/:id" element={<RecipeDetail />}></Route>
+          <Route
+            path="/SearchForm/recipe/:id"
+            element={<RecipeDetail />}
+          ></Route>
         </Routes>
         <Footer />
       </Router>

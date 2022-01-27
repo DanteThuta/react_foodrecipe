@@ -22,11 +22,6 @@ function Navbar() {
             About
           </Link>
         </li>
-        <li className="nav-links">
-          <Link to="/recipe/:id" className="nav-item">
-            detail
-          </Link>
-        </li>
       </div>
     </Wrapper>
   );
