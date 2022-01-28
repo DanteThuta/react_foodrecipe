@@ -50,7 +50,7 @@ function RecipeDetail() {
               <img src={image} className="image" alt="no image" />
             </div>
             <div className="recipe-details">
-              <div className="recipe-single"`>
+              <div className="recipe-single">
                 <h3>Calorie Per Dish:</h3>
                 <p>{recipeById.caloricBreakdown.percentFat}</p>
               </div>
