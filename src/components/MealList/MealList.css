@@ -1,0 +1,14 @@
+.meallist-container {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 5rem;
+}
+
+.meal-section {
+  background-color: brown;
+}
+
+.img-item {
+  width: 20rem;
+  height: 15rem;
+}

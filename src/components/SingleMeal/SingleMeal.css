@@ -1,0 +1,8 @@
+.singlemeal-section {
+  display: flex;
+}
+
+.img-item {
+  width: 20rem;
+  height: 15rem;
+}

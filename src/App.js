@@ -1,42 +1,36 @@
 import "./App.css";
-import React, { useContext } from "react";
-import {
-  BrowserRouter as Router,
-  Route,
-  Routes,
-  Switch,
-  Link,
-} from "react-router-dom";
-import SearchForm from "./components/SearchForm/SearchForm";
-import HomeRecipe from "./components/HomeRecipe/HomeRecipe";
-import RecipeDetail from "./components/RecipeDetail/RecipeDetail";
-import TestFile from "./components/TestFile";
-import Navbar from "./components/Navbar/Navbar";
-import About from "./components/About/About";
-import Footer from "./components/Footer/Footer";
+import axios from "axios";
+import React, { useContext, useEffect } from "react";
+
+//components
+import { Navbar, Home } from "./pages";
 import { AppContext, Provider } from "./context";
 
 function App() {
+  const sampleMeals = [
+    {
+      name: "meal1",
+      type: "type1",
+      info: "lorem43434",
+    },
+    {
+      name: "meal2",
+      type: "type2",
+      info: "lorem42323",
+    },
+  ];
+
+  // const url = "www.themealdb.com/api/json/v1/1/search.php?s=Arrabiata";
+
+  // useEffect(() => {
+  //   axios.get(url).then((response) => {
+  //     console.log(response.data);
+  //   });
+  // }, []);
   return (
     <div className="App">
-      <Router>
-        <Navbar />
-        <Routes>
-          <Route
-            exact
-            path="/"
-            element={<HomeRecipe header="Welcome to Recipes Center by Mac " />}
-          ></Route>
-          <Route path="/SearchForm" element={<SearchForm />}></Route>
-          <Route path="/about" element={<About />}></Route>
-          <Route path="/recipe/:id" element={<RecipeDetail />}></Route>
-          <Route
-            path="/SearchForm/recipe/:id"
-            element={<RecipeDetail />}
-          ></Route>
-        </Routes>
-        <Footer />
-      </Router>
+      <Navbar />
+      <Home sampleMeals={sampleMeals} />
     </div>
   );
 }
